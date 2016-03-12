@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html data-ng-app="pinkApp">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+                <script>
+            var app = angular.module('pinkApp', []);
+        app.controller('PinkFormCtrl', function($scope)
+        {
+            $scope.firstname = "pink";
+            $scope.lipStickColors = ['Red', 'Black', 'Pink','Blue','Purple'];
+            $scope.selection = $scope.lipStickColors[0];
+        });
+    </script>
+    </head>
+    <body data-ng-controller="PinkFormCtrl">
+       
+        <form>  <h2 style="color:hotpink"> <b> Party Checker </b> </h2>  
+            <h4 style="color:hotpink"> <b> Dress: </b>
+           </h4>
+            <b style="color:green"> Please select all the type of dresses you want to see - </b> 
+            <br>        BallGown: <input type="checkbox" ng-model="BallGownDress">
+            <div  ng-show="BallGownDress"> <img src="imageresource/BallGown.jpg" style="width:250px;height:250px;"> </div>
+            PromDress: <input type="checkbox" ng-model="PromDress">
+            <div ng-show="PromDress"> <img src="imageresource/PromDress.jpg" style="width:250px;height:250px;"> </div>
+            PartyDress: <input type="checkbox" ng-model="PartyDress">
+            <div ng-show="PartyDress"> <img src="imageresource/PartyDress.jpg" style="width:250px;height:250px;"> </div>
+            T-shirt and Jeans: <input type="checkbox" ng-model="JeansDress">
+            <div ng-show="JeansDress"> <img src="imageresource/JeansDress.jpg" style="width:250px;height:250px;"> </div>
+
+            <h4> <b style="color:hotpink"> Nail Polish: </b> </h4>
+            Black <input type="radio" ng-model="checkNailVal" value="blackCheckVal">
+            Pink <input type="radio" ng-model="checkNailVal" value="pinkCheckVal">
+            Green <input type="radio" ng-model="checkNailVal" value="greenCheckVal">
+            Blue <input type="radio" ng-model="checkNailVal" value="blueCheckVal">       
+             
+       
+        <div ng-switch="checkNailVal">
+        <div style="color:black" ng-switch-when="blackCheckVal"> Black looks like <img src="imageresource/BlackNailpolish.jpg" alt="black nailpolish" style="width:250px;height:250px;">
+        </div>
+         <div style="color:pink" ng-switch-when="pinkCheckVal"> Pink looks like <img src="imageresource/PinkNailpolish.jpg" alt="pink nailpolish" style="width:250px;height:250px;">
+        </div>
+         <div style="color:green" ng-switch-when="greenCheckVal"> Green looks like <img src="imageresource/GreenNailpolish.jpg" alt="green nailpolish" style="width:250px;height:250px;">
+        </div>
+             <div style="color:blue" ng-switch-when="blueCheckVal"> Blue looks like <img src="imageresource/BlueNailpolish.jpg" alt="blue nailpolish" style="width:250px;height:250px;">
+        </div>
+            <div ng-switch-default>Plain would look like <img src="imageresource/PlainNailpolish.jpg" alt="plain nailpolish" style="width:250px;height:250px;">
+        </div>
+         <h4> <b style="color:hotpink"> LipStick: </b> </h4>
+            <select ng-model="checkLipStickVal" ng-options="lipStickColor for lipStickColor in lipStickColors"> 
+                <!-- label for value in array -->
+            </select>  
+            <div ng-switch="checkLipStickVal">
+                <div style="color:red" ng-switch-default="Red"> Red looks like : <img src="imageresource/RedLipStick.jpg" alt="red lip color check" style="width:250px;height: 250px;"> </div>
+                 <div style="color:blue" ng-switch-when="Blue"> Blue looks like : <img src="imageresource/BlueLipStick.jpg" alt="blue lip color check" style="width:250px;height: 250px;"> </div>
+                 <div style="color:pink" ng-switch-when="Pink"> Pink looks like : <img src="imageresource/PinkLipStick.jpg" alt="pink lip color check" style="width:250px;height: 250px;"> </div>
+                 <div style="color:black" ng-switch-when="Black"> Black looks like : <img src="imageresource/BlackLipStick.jpg" alt="black lip color check" style="width:250px;height: 250px;"> </div>
+                 <div style="color:purple" ng-switch-when="Purple"> Purple looks like : <img src="imageresource/PurpleLipStick.jpeg" alt="purple lip color check" style="width:250px;height: 250px;"> </div>
+
+            </div>
+             </form>
+    </body>
+</html>
